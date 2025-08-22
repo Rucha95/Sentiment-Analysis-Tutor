@@ -6,7 +6,7 @@ export default function Landing() {
   return (
     <div className="landing">
       <img
-        src="./src/images/modern-family.webp"
+        src="/src/images/modern-family.webp"
         alt="Sentiment Analysis Intro"
         className="landing-img"
       />
