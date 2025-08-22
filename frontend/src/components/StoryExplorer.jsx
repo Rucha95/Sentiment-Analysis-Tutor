@@ -44,7 +44,7 @@ const QA_DATA = [
     },
     {
       question: "Does the analyzer understand EMOJIS?",
-      answer: "Emojis are like tiny pictures of feelings! 😀 means happy, 😢 means sad. The computer adds or subtracts points when it sees these emojis, because they tell a lot about emotions."
+      answer: "Emojis are like tiny pictures of feelings! 😀 means happy, 😢 means sad. The sentiment analyzer adds or subtracts points when it sees these emojis, because they tell a lot about emotions."
     },
     {
       question: "How does the prediction score work?",
@@ -70,7 +70,7 @@ export default function StoryExplorer() {
   useEffect(() => {
     async function fetchAll() {
       try {
-        const res = await fetch(API_URL + "/analyze", {
+        const res = await fetch(API_URL + "/api/analyze", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ paragraphs: STORY.map((x) => x.text) }),

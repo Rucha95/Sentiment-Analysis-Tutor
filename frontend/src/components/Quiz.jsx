@@ -22,7 +22,7 @@ const QUESTIONS = [
     a: 1
   },
   {
-    q: 'What of the followinf are applications of sentiment analysis?',
+    q: 'Which of the following are applications of sentiment analysis?',
     opts: ['Social Media monitoring', 'Customer Support', 'Patient feedback','All of above'],
     a: 3
   }
