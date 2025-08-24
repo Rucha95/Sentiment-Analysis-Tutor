@@ -70,7 +70,7 @@ export default function StoryExplorer() {
   useEffect(() => {
     async function fetchAll() {
       try {
-        const res = await fetch(API_URL + "/api/analyze", {
+        const res = await fetch(API_URL + "/analyze", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ paragraphs: STORY.map((x) => x.text) }),
