@@ -19,7 +19,7 @@ export default function SentimentPanel({
       <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap:8}}>
         <div className="label">Live Analyzer</div>
         <div style={{fontSize:12, opacity:.8}}>
-          Model: <b>{model==='rule'?'Rule':'Alt'}</b>
+          Model : <b>{model === "not_selected" ? "Not Selected" : model === "rule" ? "Rule": "Alt"}</b>
         </div>
       </div>
       <div className="meter" aria-hidden>
@@ -30,7 +30,7 @@ export default function SentimentPanel({
         <span style={{marginLeft:'auto'}}>😊 Positive</span>
       </div>
       <p style={{marginTop:6}}>Prediction: <b>{label}</b> (score {score.toFixed(2)})</p>
-      <p style={{marginTop:0, fontSize:14, opacity:.8}}>Word counts : +{posneg.pos} / -{posneg.neg}</p>
+      {model==='alt' && (<p style={{marginTop:0, fontSize:14, opacity:.8}}>Word count: +{posneg.pos} / -{posneg.neg}</p>)}
       <details>
         <summary style={{cursor:'pointer'}}>{question}</summary>
         <p style={{marginTop:8}}>{answer}</p>

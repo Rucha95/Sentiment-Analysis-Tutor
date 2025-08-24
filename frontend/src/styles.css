@@ -1,5 +1,5 @@
 :root{
-  --bg:#fff7ef;
+  --bg:#f2e0d0;
   --primary:#245F73;
   --accent:#ffb703;
   --good:#29a744;
@@ -128,6 +128,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  /* background: linear-gradient(to bottom, #d9bfa3, #f2f2f2 70%); */
   background: linear-gradient(to bottom, #fff7ef, #ffffff 70%);
   border-radius: 20px;
   padding: 20px;
@@ -141,7 +142,11 @@ button{
   z-index: 2;
 }
 .speech{
-  background:#f7f7ff; border:1px dashed #dad6ff; border-radius:16px; padding:12px 14px;
+  background: #e0e0f5;
+border: 1px dashed #aaa4f0;
+border-radius: 16px;
+padding: 12px 14px;
+  /* background:#f7f7ff; border:1px dashed #dad6ff; border-radius:16px; padding:12px 14px; */
 }
 .speech h3{ margin:0 0 8px; font-size:1rem; color:#333 }
 .speech p{ margin:0; font-size:clamp(14px,1.9vw,18px); line-height:1.5 }
@@ -149,7 +154,11 @@ button{
   display:inline-flex; align-items:center; gap:8px; font-weight:700; color:#222
 }
 .analysis{
-  background:#fff8ec; border:1px solid #ffe0a6; border-radius:16px; padding:12px;
+  /* background:#fff8ec; border:1px solid #ffe0a6; border-radius:16px; padding:12px; */
+  background: #ffeeda;  /* darker creamy peach */
+border: 1px solid #ffc875;
+border-radius: 16px;
+padding: 12px;
 }
 .meter {
   height: 14px;
@@ -183,7 +192,11 @@ button{
 .btn.alt{ background:var(--accent); color:#000; margin-right: 10px; box-shadow:0 8px 20px rgba(255,183,3,.2) }
 
 .quiz{
-  background:#f0fff4; border:1px solid #b8f0c9; border-radius:18px; padding:14px;
+  /* background:#f0fff4; border:1px solid #b8f0c9; border-radius:18px; padding:14px; */
+  background: #c8e6d0;
+border: 1px solid #7ac896;
+border-radius: 18px;
+padding: 14px;
 }
 .quiz h3{ margin-top:0 }
 .option{ display:block; background:#fff; border:1px solid #eee; border-radius:12px; padding:8px 10px; margin:8px 0; cursor:pointer }
@@ -243,3 +256,26 @@ button{
   background: #ffb703;
 }
 
+.btn-neutral {
+  background: #245F73;
+  color: white;
+}
+
+.btn-rule {
+  background: #ffb703; 
+  color: white;
+}
+
+.btn-alt {
+  background: #10b981; 
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+.btn-large {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}

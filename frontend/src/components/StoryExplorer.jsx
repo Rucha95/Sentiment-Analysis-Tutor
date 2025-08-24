@@ -19,8 +19,8 @@ const STORY = [
 
 const QA_DATA = [
     {
-        question:"What is Sentiment Analysis?", 
-        answer:"The sentiment analyzer, reads a sentence and decides if the overall feeling is positive, negative, or neutral. Different models can perform different types of sentiment analysis." 
+        question:"What does the Analyzer do?", 
+        answer:"It is a computer program that reads a sentence and decides if the overall feeling is positive, negative, or neutral. Different models can perform different types of sentiment analysis." 
     },
     {
       question: "What is the Rule model?",
@@ -31,7 +31,7 @@ const QA_DATA = [
       answer: "It is an alternative model designed to only look for positive and negative words to get the score. More positive words in the text lead to increasing the score while more negative words lead to decreasing the score. It is faster but less accurate than the Rule model."
     },
     {
-      question: "What are the POSITIVE and NEGATIVE words?",
+      question: "What are POSITIVE and NEGATIVE words?",
       answer: "They are like two big boxes of words. The positive box has happy words like love, fun, smile. The negative box has sad words like cry, angry, sick. The sentiment analyzer checks which box your words fall into."
     },
     {
@@ -40,7 +40,7 @@ const QA_DATA = [
     },
     {
       question: "What are BOOSTERS?",
-      answer: "Boosters make feelings stronger. Words like very, super, really act like a megaphone for emotions. Saying 'very happy' is more powerful than just 'happy', so the score goes up more."
+      answer: "Boosters make feelings stronger. Words like very, super, really act like a loud speaker for emotions. Saying 'very happy' is more powerful than just 'happy', so the score goes up more."
     },
     {
       question: "Does the analyzer understand EMOJIS?",
@@ -92,6 +92,7 @@ export default function StoryExplorer() {
       ? { pos: current.alt.pos, neg: current.alt.neg }
       : { pos: 0, neg: 0 };
 
+
   function next() {
     setIndex((i) => Math.min(i + 1, STORY.length));
     setTimeout(() => {
@@ -120,9 +121,6 @@ export default function StoryExplorer() {
           <div>Grandma's Story Sentiment Explorer</div>
         </div>
         <div className="header-actions">
-          <button className="btn alt" onClick={() => setModel((m) => (m === "rule" ? "alt" : "rule"))}>
-            Switch to {model === "rule" ? "Alt" : "Rule"} Model
-          </button>
           <button className="btn home" onClick={() => navigate("/")}>
             ⬅ Home
           </button>
@@ -132,11 +130,36 @@ export default function StoryExplorer() {
       <section className="hero">
         <h1>Let's Dive into Sentiment Analysis!</h1>
         <p>
-        Move across the story panels. Click <button className="btn" onClick={() => setShowPredictions(true)}>
+        Discover how computers can understand emotions in text — sentiment analysis lets you teach machines to recognize happiness, sadness, and everything in between!</p>
+        <div style={{ marginTop: "1.5rem", display: "flex", justifyContent: "center" }}>
+        <button
+  className={`btn btn-large ${
+    !showPredictions ? "btn-neutral" : model === "rule" ? "btn-rule" : "btn-alt"
+  }`}
+  onClick={() => {
+    if (!showPredictions) {
+      setShowPredictions(true)
+      setModel("rule") 
+    } else {
+      setModel((m) => (m === "rule" ? "alt" : "rule"))
+    }
+  }}
+>
+  {!showPredictions
+    ? "Run Analysis"
+    : `Switch to ${model === "rule" ? "Alt" : "Rule"} Model`}
+</button>
+        </div>
+        
+
+
+
+        {/* Click <button className="btn" onClick={() => setShowPredictions(true)}>
              Show Predictions
-          </button> to see the mood analysis.  
-          Switch between <b>Rule</b> and <b>Alt</b> models anytime.
-        </p>
+          </button> to see the mood analysis.<button className="btn alt" onClick={() => setModel((m) => (m === "rule" ? "alt" : "rule"))}>
+            Switch to {model === "rule" ? "Alt" : "Rule"} Model
+          </button>  */}
+        
       </section>
 
       <div className="rail" ref={railRef}>
@@ -151,7 +174,7 @@ export default function StoryExplorer() {
                   ? { pos: results[i].alt.pos, neg: results[i].alt.neg }
                   : { pos: 0, neg: 0 }
               }
-              model={model}
+              model={!showPredictions ? "not_selected" :model}
               question={QA_DATA[i % QA_DATA.length].question}
               answer={QA_DATA[i % QA_DATA.length].answer}
             />
