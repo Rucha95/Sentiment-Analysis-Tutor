@@ -105,7 +105,7 @@ def analyze(req: AnalyzeRequest):
         })
     return {"results": results}
 
-def handler(req):
-    return app(AnalyzeRequest)
+# def handler(req):
+#     return app(AnalyzeRequest)
 
 
