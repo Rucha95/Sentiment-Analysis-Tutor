@@ -107,3 +107,5 @@ def analyze(req: AnalyzeRequest):
 
 def handler(req):
     return app(AnalyzeRequest)
+
+
