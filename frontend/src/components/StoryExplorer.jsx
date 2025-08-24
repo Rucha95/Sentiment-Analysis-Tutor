@@ -4,7 +4,7 @@ import StoryPanel from "./StoryPanel.jsx";
 import SentimentPanel from "./SentimentPanel.jsx";
 import Quiz from "./Quiz.jsx";
 
-const API_URL = import.meta.env.VITE_API_URL ||  "/api" || "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL ||  "/api";
 
 const STORY = [
   { who:'Grandma', text:'When I was your age, I loved visiting the sunny market with bright flowers and friendly faces everywhere!' },
